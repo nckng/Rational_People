@@ -24,7 +24,8 @@ public class Rational{
 	return ""+numerator+"/"+denominator;
     }
     public double floatValue(){
-	return numerator*(1.0)/denominator;
+	return numerator*(1.0)/denominator; 
+	// division by a floating point # converts the fraction into a float
     }
     public void multiply(Rational Q){
 	this.numerator = this.numerator * Q.numerator;
@@ -32,7 +33,7 @@ public class Rational{
     }
     public void divide(Rational Q){
 	this.numerator = this.numerator * Q.denominator;
-	if (Q.numerator != 0){
+	if (Q.numerator != 0){  //makes sure the result is a real number
 	    this.denominator = this.denominator * Q.numerator;
 	}
 	else{
