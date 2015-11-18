@@ -1,4 +1,4 @@
-//Team Rational_People -- Nicholas Ng, Shanjeed Ali
+//Team Rational_RationALIziNG -- Nicholas Ng, Shanjeed Ali
 //APCS1 pd10
 //HW #32: Irrationality Stops Here
 //2015-11-17
