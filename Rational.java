@@ -4,12 +4,15 @@
 //2015-11-17
 
 public class Rational{
-    public int numerator;
-    public int denominator;
+
+    //instance variables
+    private int numerator;
+    private int denominator;
     public Rational(){
 	numerator = 0;
 	denominator = 1;
     }
+    //Constructor
     public Rational(int a, int b){
 	numerator = a;
 	if (b != 0){
@@ -19,6 +22,14 @@ public class Rational{
 	    numerator =0;
 	    denominator =1;
 	}
+    }
+    //Mutators
+    public int getNum(){
+	return numerator;
+    }
+
+    public int getDen(){
+	return denominator;
     }
     public String toString(){
 	return ""+numerator+"/"+denominator;
@@ -33,7 +44,7 @@ public class Rational{
     }
     public void divide(Rational Q){
 	this.numerator = this.numerator * Q.denominator;
-	if (Q.numerator != 0){  //makes sure the result is a real number
+	if (Q.numerator != 0){  //makes sure there is no division by 0
 	    this.denominator = this.denominator * Q.numerator;
 	}
 	else{
