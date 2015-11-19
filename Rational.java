@@ -1,4 +1,4 @@
-//Team Rational_RationALIziNG -- Nicholas Ng, Shanjeed Ali
+//Team Rational_RationALIziNG -- Nicholas Ng, Ruochong Wu
 //APCS1 pd10
 //HW #32: Irrationality Stops Here
 //2015-11-17
@@ -62,9 +62,7 @@ public class Rational{
 	    Q.numerator*this.denominator;
 	this.denominator = this.denominator*Q.denominator;
     }
-    public int GCD(){
-        int a = numerator;
-	int b = denominator;
+    public static int GCD(int a, int b){
 	while (a != b){
 	    if (a > b){
 		a -= b;
@@ -77,17 +75,27 @@ public class Rational{
     }
 
     public void reduce(){
-	int gcd = GCD();
+	int gcd = GCD(numerator, denominator);
 	numerator /= gcd;
 	denominator /= gcd;
     }
-
+    public int compareTo(Rational Q){
+	if (this.numerator * denominator > this.denominator * Q.numerator){
+	    return 1;
+	}
+	else if (this.numerator * Q.denominator < this.denominator * Q.numerator){
+	    return -1;
+	}
+	else{
+	    return 0;
+	}
+    }
 	
     public static void main(String[] args){
 	Rational george = new Rational();
 	Rational marley = new Rational(17,38);
 	Rational tigger = new Rational(21,69);
-	System.out.println(tigger.GCD());
+	System.out.println(tigger.GCD(tigger.numerator, tigger.denominator));
 	System.out.println(george);
 	System.out.println(marley);
 	System.out.println(tigger);
