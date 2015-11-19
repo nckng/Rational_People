@@ -63,13 +63,35 @@ public class Rational{
 	this.denominator = this.denominator*Q.denominator;
     }
     public int GCD(){
+        int a = numerator;
+	int b = denominator;
+	while (a != b){
+	    if (a > b){
+		a -= b;
+	    }
+	    else{
+		b -= a;
+	    }
+	}
+	return a;
+    }
+
+    public void reduce(){
+	int gcd = GCD();
+	numerator /= gcd;
+	denominator /= gcd;
+    }
+
 	
     public static void main(String[] args){
 	Rational george = new Rational();
 	Rational marley = new Rational(17,38);
 	Rational tigger = new Rational(21,69);
+	System.out.println(tigger.GCD());
 	System.out.println(george);
 	System.out.println(marley);
+	System.out.println(tigger);
+	tigger.reduce();
 	System.out.println(tigger);
 	System.out.println(george.floatValue());
 	System.out.println(marley.floatValue());
