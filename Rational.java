@@ -19,8 +19,8 @@ public class Rational{
 	    denominator = b;
 	}
 	else{
-	    numerator =0;
-	    denominator =1;
+	    numerator = 0;
+	    denominator = 1;
 	}
     }
     //Mutators
@@ -52,7 +52,18 @@ public class Rational{
 	    this.denominator = 1;
 	}
     }
-    
+    public void add(Rational Q){
+	this.numerator = this.numerator*Q.denominator
+	    + Q.numerator*this.denominator;
+	this.denominator = this.denominator*Q.denominator;
+    }
+    public void subtract(Rational Q){
+	this.numerator = this.numerator*Q.denominator -
+	    Q.numerator*this.denominator;
+	this.denominator = this.denominator*Q.denominator;
+    }
+    public int GCD(){
+	
     public static void main(String[] args){
 	Rational george = new Rational();
 	Rational marley = new Rational(17,38);
