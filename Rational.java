@@ -1,7 +1,7 @@
 //Team Rational_RationALIziNG -- Nicholas Ng, Ruochong Wu
 //APCS1 pd10
-//HW #32: Irrationality Stops Here
-//2015-11-17
+//HW #33: Do You Even Add, Bro?
+//2015-11-18
 
 public class Rational{
 
@@ -62,8 +62,25 @@ public class Rational{
 	    Q.numerator*this.denominator;
 	this.denominator = this.denominator*Q.denominator;
     }
+    //Non static version, Euclid's algorithm, using While loop
+    public int GCD(){
+	int a = numerator;  //"Backup" so that denominator and numerator are not messed up by Euclid's algo
+	int b = denominator;
+	while (a != b){   //Loop complete when 1 subtracted by other = 0 aka. When both numbers are equal
+	    if (a > b){
+		a -= b;
+	    }
+	    else{
+		b -= a;
+	    }
+	}
+	return a;
+    }
+
+    
+    //Static version, takes 2 int inputs
     public static int GCD(int a, int b){
-	while (a != b){
+	while (a != b){   //Loop complete when 1 subtracted by other = 0 aka. When both numbers are equal
 	    if (a > b){
 		a -= b;
 	    }
@@ -80,7 +97,7 @@ public class Rational{
 	denominator /= gcd;
     }
     public int compareTo(Rational Q){
-	if (this.numerator * denominator > this.denominator * Q.numerator){
+	if (this.numerator * Q.denominator > this.denominator * Q.numerator){
 	    return 1;
 	}
 	else if (this.numerator * Q.denominator < this.denominator * Q.numerator){
@@ -95,7 +112,10 @@ public class Rational{
 	Rational george = new Rational();
 	Rational marley = new Rational(17,38);
 	Rational tigger = new Rational(21,69);
-	System.out.println(tigger.GCD(tigger.numerator, tigger.denominator));
+	Rational bigger = new Rational(1,2);
+	Rational smaller = new Rational (1,3);
+	System.out.println(tigger.GCD());
+	System.out.println(tigger.GCD(tigger.numerator,tigger.denominator));
 	System.out.println(george);
 	System.out.println(marley);
 	System.out.println(tigger);
@@ -113,6 +133,9 @@ public class Rational{
 	System.out.println(tigger);
 	tigger.divide(george);
 	System.out.println(tigger);
+	System.out.println(bigger.compareTo(smaller));  //1
+	System.out.println(smaller.compareTo(bigger)); //-1
+	System.out.println(bigger.compareTo(bigger)); //0
 	
     }
 }
